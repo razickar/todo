@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(193, 205, 201);
+    position: relative;
+}
+
+.heading {
+    background-color: black;
+    height: 20%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.heading h1 {
+    color: aliceblue;
+    padding: 90px;
+    box-shadow: inset -10px -10px 40px rgb(67, 147, 139);
+    letter-spacing: 10px;
+}
+
+.heading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 10%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1), transparent);
+    transform: skewX(-30deg);
+    animation: splashLightEffect 1s infinite linear;
+}
+
+@keyframes splashLightEffect {
+    0% {
+        animation-delay: 2s;
+        left: -100%;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        animation-delay: 2s;
+        left: -100%;
+    }
+}
+
+.container button {
+    animation-name: anima;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    color: whitesmoke;
+    background-color: black;
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    font-size: 50px;
+    z-index: 10;
+}
+
+@keyframes anima {
+    from {
+        border-radius: 100px;
+    }
+    to {
+        border-radius: 25px;
+        color: black;
+    }
+}
+
+.layer {
+    transition: all 0.3s ease-in;
+    position: fixed;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+
+.fadediv {
+    position: relative;
+    box-shadow: 10px 10px 20px wheat;
+    border-radius: 20px;
+    margin: 150px auto;
+    height: 400px;
+    width: 600px;
+    background-color: rgb(115, 116, 118);
+    border-left: 1px solid rgb(133, 248, 212);
+    border-top: 1px solid rgb(133, 248, 212);
+    z-index: 5;
+}
+
+.fadediv button {
+    animation-name: anima;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    position: absolute;
+    right: 50px;
+    bottom: 20px;
+    color: whitesmoke;
+    background-color: black;
+    height: 80px;
+    width: 150px;
+    border-radius: 10px;
+    font-size: 30px;
+}
+
+.fadediv textarea {
+    background-color: rgba(5, 4, 4, 0.482);
+    border-radius: 25px;
+    box-shadow: 10px 10px 30px black;
+    height: 200px;
+    width: 80%;
+    margin: 50px auto;
+    display: block;
+    color: aliceblue;
+    padding: 20px;
+    outline: none;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+}
+
+#contentdiv {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    padding: 20px;
+    border: 0px dotted rgb(23, 18, 18);
+    min-height: 500px;
+    max-height: 60vh;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.2);
+    overflow-y: auto;
+    border-radius: 15px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
+    scrollbar-width: thin;
+}
+
+#contentdiv::-webkit-scrollbar {
+    width: 8px;
+}
+
+#contentdiv::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+#contentdiv::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.notes {
+    height: auto;
+    min-height: 120px;
+    width: 250px;
+    background: linear-gradient(135deg, #222825, #1b7345);
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    color: azure;
+    padding: 15px;
+    margin: 10px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.notes:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.notes span {
+    font-size: 16px;
+    word-break: break-word;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.edit-btn, .delete-btn {
+    position: absolute;
+    height: 30px !important;
+    width: 30px !important;
+    font-size: 18px !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border: none;
+    border-radius: 50% !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    animation: none !important;
+}
+
+.edit-btn {
+    right: 40px;
+    bottom: 10px;
+}
+
+.delete-btn {
+    right: 5px;
+    bottom: 10px;
+}
+
+.filter-controls {
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin: 10px 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.filter-controls select, .filter-controls input {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: #eee;
+    font-size: 14px;
+}
+
+.category {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #ddd;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 3px 8px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.date-info {
+    font-size: 12px;
+    color: #ddd;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.task-checkbox {
+    margin-right: 10px;
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .heading {
+        height: auto;
+        padding: 10px 0;
+    }
+    
+    .heading h1 {
+        padding: 20px;
+        font-size: 24px;
+        letter-spacing: 5px;
+    }
+    
+    .fadediv {
+        width: 90%;
+        height: auto;
+        padding-bottom: 100px;
+    }
+    
+    .filter-controls {
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    .notes {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .container button {
+        height: 70px;
+        width: 70px;
+        font-size: 35px;
+    }
+}
